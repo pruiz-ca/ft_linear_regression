@@ -23,11 +23,16 @@ With the number of iterations and learning rate we are setting the speed at whic
 
 ## Good learning material
 https://github.com/42-AI/bootcamp_python
+
 https://github.com/42-AI/bootcamp_machine-learning
+
 https://www.coursera.org/learn/machine-learning/
 
 ## Other links
 https://zhuanlan.zhihu.com/p/64201647
+
 https://mashkarharis.medium.com/linear-regression-in-python-scikit-learn-526b57a11a09
+
 https://en.wikipedia.org/wiki/Gradient_descent
+
 https://en.wikipedia.org/wiki/Linear_regression
