@@ -10,7 +10,6 @@ Linear regression: way to explain the relationship between a dependent variable 
 Gradient descent: optimization algorithm to find a local minimum of a function. In this case we are using a squared error cost function.
 <p align=center><img width=300px src=https://user-images.githubusercontent.com/74905890/142947946-2e93dae2-6c78-492c-854a-8d8e300a7fbf.png></img></p>
 
-## What we are doing
 A linear equation has the form: y = mx + b
 We want to guess m and b for the line closest to all points in our dataset to predict y with x.
 We are using the squared error cost function, it has a convex shape and is calculated substracting the Y value between predicted values and real values. Why squared? to avoid sign differences between values that are above and below the predited line.
