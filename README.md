@@ -21,6 +21,16 @@ By taking the derivative at a definite point of the cost function we get the slo
 With the number of iterations and learning rate we are setting the speed at which we are going down the cost function until we reach the minimum.
 <p align=center><img width=300px src=https://user-images.githubusercontent.com/74905890/142949226-ddf08fa2-15c3-4c50-9122-d207a9a18ef1.png></img></p>
 
+## Using the model
+- train.py: generate the prediction model and save it in thetas.csv
+- predict.py: make a prediction based on user input
+- accuracy.py: calculates R squared.
+```
+train.py <dataset> <"auto">
+    - dataset: if empty uses "dataset.csv"
+    - auto: with this keyword the model will stop automatically when the prediction is good enough
+```
+
 ## Good learning material
 https://github.com/42-AI/bootcamp_python
 
