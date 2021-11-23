@@ -23,7 +23,7 @@ def calculateAccuracy(*args):
         t = [args[0], args[1]]
     else:
         t = getThetas()
-    data = pd.read_csv("data.csv", sep=',', header=0)
+    data = pd.read_csv("datasets/data.csv", sep=',', header=0)
     rss = explainedVariance(data, t)
     tss = totalVariance(data, t)
     r_squared = 1 - (rss / tss)

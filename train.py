@@ -94,7 +94,7 @@ if __name__ == "__main__":
         data = pd.read_csv(argv[1], sep=',', header=0)
     except (FileNotFoundError, IndexError):
         print("Using default dataset")
-        data = pd.read_csv("data.csv", sep=',', header=0)
+        data = pd.read_csv("datasets/data.csv", sep=',', header=0)
 
     data_n = normalizeData(data)
     km_min = int(data['km'].min())
