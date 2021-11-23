@@ -62,7 +62,7 @@ def createGraph():
 def updateGraph(km_min, km_max, t0, t1, e):
     if e % update_interval == 0:
         acc = calculateAccuracy(t0, t1) * 100
-        plt.title(f"epoch = {e}, m = {t1:.3f}, b = {t0:.0f}, acc = {acc:.2f}%")
+        plt.title(f"epoch = {e}, m = {t1:.3f}, b = {t0:.0f}, acc = {acc:.2f}% auto = {auto_mode}")
         x_values = [km_min, km_max]
         y_values = [t0 + (t1 * km_min), t0 + (t1 * km_max)]
         reg_line = plt.plot(x_values, y_values, color="red")
@@ -71,14 +71,15 @@ def updateGraph(km_min, km_max, t0, t1, e):
         print(f"\rIteration {i}: "
               f"m = {t1:.3f}, "
               f"b = {t0:.3f}, "
-              f"acc = {acc:.2f}%",
+              f"acc = {acc:.2f}%, "
+              f"auto = {auto_mode}",
               end=''
               )
 
 
 def saveGraph(km_min, km_max, t0, t1, e):
     acc = calculateAccuracy(t0, t1) * 100
-    plt.title(f"epoch = {e}, m = {t1:.3f}, b = {t0:.0f}, acc = {acc:.2f}%")
+    plt.title(f"epoch = {e}, m = {t1:.3f}, b = {t0:.0f}, acc = {acc:.2f}% auto = {auto_mode}")
     x_values = [km_min, km_max]
     y_values = [t0 + (t1 * km_min), t0 + (t1 * km_max)]
     plt.plot(x_values, y_values, color="red")
@@ -89,11 +90,16 @@ def saveGraph(km_min, km_max, t0, t1, e):
 if __name__ == "__main__":
     old_t0 = 0
     t0n = t1n = 0
-    data = pd.read_csv("data.csv", sep=',', header=0)
+    try:
+        data = pd.read_csv(argv[1], sep=',', header=0)
+    except (FileNotFoundError, IndexError):
+        print("Using default dataset")
+        data = pd.read_csv("data.csv", sep=',', header=0)
+
     data_n = normalizeData(data)
     km_min = int(data['km'].min())
     km_max = int(data['km'].max()) + 1
-    auto_mode = True if len(argv) > 1 and argv[1] == "auto" else False
+    auto_mode = True if len(argv) > 1 and argv[len(argv) - 1] == "auto" else False
 
     createGraph()
     for i in range(iterations + 1):
